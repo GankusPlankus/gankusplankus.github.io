@@ -1,0 +1,92 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:rgb(0, 0, 255)"></div>
+
+<div id="ball2" style="
+z-index:5;
+position:absolute;
+left:0px;
+top:0px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:rgb(255, 0, 0)"></div>
+
+<script>
+// FIRST BALL
+var velocityX = 5;
+var velocityY = 3;
+var positionX = 0;
+var positionY = 0;
+var ball = document.getElementById('ball');
+// SECOND BALL
+var velocityX2 = 4;
+var velocityY2 = 3;
+var positionX2 = 15;
+var positionY2 = 20;
+var ball2 = document.getElementById('ball2');
+
+
+
+
+
+// YOUR CODE 
+
+function moveBalls(){
+  positionX = positionX + velocityX;
+  positionY = positionY + velocityY;
+  ball.style.left = positionX + 'px';
+  ball.style.top = positionY + 'px';
+
+
+  if (positionX >= 1500 || positionX <= 1){
+    velocityX = -velocityX;
+
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    ball.style.background = randomColor
+
+    var randomSize = Math.random() * 200 + 'px'
+    ball.style.height = randomSize
+    ball.style.width = ball.style.height
+  };
+  if (positionY >= 600 || positionY <= 1){
+    velocityY = -velocityY;
+    
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    ball.style.background = randomColor
+
+    var randomSize = Math.random() * 200 + 'px'
+    ball.style.height = randomSize
+    ball.style.width = ball.style.height
+  };
+
+
+  positionX2 = positionX2 + velocityX2;
+  positionY2 = positionY2 + velocityY2;
+  ball2.style.left = positionX2 + 'px';
+  ball2.style.top = positionY2 + 'px';
+
+
+
+
+  if (positionX2 >= 1500 || positionX2 <= 1){
+    velocityX2 = -velocityX2
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    ball2.style.background = randomColor
+  };
+  if (positionY2 >= 600 || positionY2 <= 1){
+    velocityY2 = -velocityY2
+    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    ball2.style.background = randomColor
+  };
+
+}
+setInterval(moveBalls, 8)
+
+</script>
